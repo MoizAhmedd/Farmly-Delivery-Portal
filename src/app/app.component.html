@@ -306,6 +306,18 @@
 
 <ng-template #content let-modal>
     <div class="modal-body">
+        <div class="row">
+            <div style = "display:flex;justify-content:center;" class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button style = "width:auto;" class="view-btn" id="dropdownBasic1" ngbDropdownToggle>{{formattedDate(this.currentDelivery['deliveryDate'])}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <ng-container *ngFor = "let delivery of deliveries;let idx=index">
+                      <button (click)="setDelivery(idx)" ngbDropdownItem>{{formattedDate(delivery.deliveryDate)}}</button>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
       <img style = "margin-left: 25px;width: 1055px;height: 413px;" src = "assets/map.png">
       <div class = "cards">
           <div style = "width:250px; height:250px;" class = "truck-card">
@@ -313,9 +325,9 @@
                 TRUCK DETAILS
               </div>
               <div class = "details">
-              <p style = "margin-bottom:10px;"><strong>Location:</strong> 89 Sheppard East</p>
-              <p style = "display:flex;margin-bottom:5px;"><strong>Delivery Radius:&emsp;</strong><input value = "40km" style = "text-align:center;font-size:11px;width:50px;border:1.5px solid black;border-radius:5px;"></p>
-              <p style = "display:flex;margin-bottom:35px;"><strong>Pick-up Radius:&emsp;</strong><input value = "100km" style = "text-align:center;font-size:11px;width:50px;border:1.5px solid black;border-radius:5px;"></p>
+              <p style = "margin-bottom:10px;"><strong>Location:</strong> {{currentTruck.truckLocation['address'].slice(0,18)}}</p>
+              <p style = "display:flex;margin-bottom:5px;"><strong>Delivery Radius:&emsp;</strong><input value = "{{currentTruck.deliveryRadius}}" style = "text-align:center;font-size:11px;width:50px;border:1.5px solid black;border-radius:5px;"></p>
+              <p style = "display:flex;margin-bottom:35px;"><strong>Pick-up Radius:&emsp;</strong><input value = "{{currentTruck.collectionRadius}}" style = "text-align:center;font-size:11px;width:50px;border:1.5px solid black;border-radius:5px;"></p>
             </div>
             <div style = "display:flex;justify-content: center;">
             <button class = "update-btn">
@@ -327,25 +339,20 @@
               <div class = "category">
                   ROUTE STOPS
                 </div>
-                <div style = "margin-left:5px;" class = "details">
-                  <p><strong>Stop 1:&nbsp;</strong>Dundas East</p>
-                  <p><strong>Stop 2:&nbsp;</strong>Queen Street</p>
-                  <p><strong>Stop 3:&nbsp;</strong>King Street</p>
-                  <p><strong>Stop 4:&nbsp;</strong>Prince Street</p>
-                  <p><strong>Stop 5:&nbsp;</strong>Princess Street</p>
+                <div style = "margin-left:5px;max-height:200px;overflow:scroll;" class = "details">
+                  <ng-container *ngFor = "let stop of stops;let stopIdx=index">
+                    <p><strong>Stop {{stopIdx+1}}:&nbsp;</strong> {{stop}}</p>
+                  </ng-container>
                 </div>
             </div>
             <div style = "width:250px; height:250px;" class = "truck-card">
                 <div class = "category">
                     INVENTORY
                   </div>
-                  <div style = "margin-left:20px;" class = "details">
-                    <p><strong>Ten Apples</strong></p>
-                    <p><strong>Eight Bananas</strong></p>
-                    <p><strong>Twenty Oranges</strong></p>
-                    <p><strong>Three Pineapples</strong></p>
-                    <p><strong>Twenty Blueberries</strong></p>
-                    <p><strong>Four Kiwi</strong></p>
+                  <div style = "margin-left:20px;max-height:200px;overflow:scroll;" class = "details">
+                    <ng-container *ngFor = "let product of inventory;let productIdx=index">
+                        <p><strong>{{productIdx+1}}.&nbsp;{{product}}</strong></p>
+                    </ng-container>
                   </div>
               </div>
       </div>
@@ -354,38 +361,23 @@
 
 <h1 class = "title">ARROWHEAD FARM TRUCKS</h1>
 <div class = "cards">
-  <div class = "truck-card">
-    <div class = "truck-content">
-      <img src = "assets/truck.png">
-      <p class = "truck-name">Sheppard Truck</p>
-      <p class = "next-delivery">Next Delivery: April 22nd,2020</p>
-      <button  (click)="openXl(content)" class = "view-btn">
-        VIEW
-      </button>
-    </div>
-  </div>
-  <div class = "truck-card">
-      <div class = "truck-content">
-          <img src = "assets/truck.png">
-          <p class = "truck-name">Milner Truck</p>
-          <p class = "next-delivery">Next Delivery: April 23rd,2020</p>
-          <button  (click)="openXl(content)" class = "view-btn">
+  <ng-container *ngFor = "let truck of trucks;let indexOfelement=index;">
+      <div class = "truck-card">
+          <div class = "truck-content">
+            <img src = "assets/truck.png">
+            <p class = "truck-name">{{truck.truckLocation['address'].split(',')[0]}} Truck</p>
+            <p class = "next-delivery"><strong>Next Delivery:&nbsp;</strong>{{getNextDelivery(indexOfelement)}}</p>
+            <button  (click)="openXl(content,indexOfelement)" class = "view-btn">
               VIEW
             </button>
-      </div>
-  </div>
-  <div class = "truck-card">
-      <div class = "truck-content">
-          <img src = "assets/truck.png">
-          <p class = "truck-name">Kipling Truck</p>
-          <p class = "next-delivery">Next Delivery: April 24th,2020</p>
-          <button  (click)="openXl(content)" class = "view-btn">
-              VIEW
-            </button>
-      </div>
-  </div>
+          </div>
+        </div>
+  </ng-container>
 </div>
 
+<!-- <ng-container *ngFor = "let truck of trucks;let indexOfelement=index;">
+  
+</ng-container> -->
 
 
   <!-- Next Steps -->
