@@ -1,0 +1,180 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+
+.title{
+	font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 56px;
+margin:15px;
+margin-top:135px;
+margin-bottom:25px;
+text-align: center;
+color: #F9F9F9;
+}
+.cards{
+	display:flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.truck-card{
+display:flex;
+flex-direction: column;
+width: 300px;
+height: 350px;
+background-color: #FFFFFF;
+border: 1px solid #FFFFFF;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+border-radius: 26px;
+}
+
+.truck-content{
+	margin:0 auto;
+	padding-top:20px;
+	text-align: center;
+}
+
+.truck-name{
+	font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+text-decoration-line: underline;
+
+color: #070707;
+
+mix-blend-mode: normal;
+margin-bottom:20px;
+}
+
+.next-delivery{
+	font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+
+color: #131313;
+
+mix-blend-mode: normal;
+margin-bottom:20px;
+}
+
+.view-btn{
+	width: 162px;
+height: 50px;
+
+background: #8AC49A;
+border: 1px solid #FFFFFF;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+border-radius: 26px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 16px;
+/* identical to box height */
+
+
+color: #FFFAFA;
+
+mix-blend-mode: normal;
+}
+
+.view-btn:hover{
+	background:#a4eab6;
+}
+
+section {
+	display: table;
+	margin: 8px;
+  }
+  
+  .example-label {
+	display: table-cell;
+	font-size: 14px;
+	margin-left: 8px;
+	width: 120px;
+  }
+  
+  .example-button-row {
+	display: table-cell;
+  }
+  
+  .example-button-row button {
+	display: table-cell;
+	margin-right: 8px;
+  }
+  
+  .example-flex-container {
+	display: flex;
+	justify-content: space-between;
+	width: 480px;
+  }
+  
+  .example-button-container {
+	display: flex;
+	justify-content: center;
+	width: 120px;
+  }
+
+  .category{
+	  display:flex;
+	  align-items: center;
+	  justify-content: center;
+	width: 243px;
+	height: 43px;
+	left: 13px;
+	top: 420px;
+	
+	background: #8AC49A;
+	border: 1px solid #FFFFFF;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 26px;
+	font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 15px;
+
+color: #FFFFFF;
+text-align: center;
+  }
+
+  .details{
+	display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 30px;
+  }
+
+  .update-btn{
+	width: 137px;
+	height: 25px;
+	left: 35px;
+	top: 566px;
+	
+	background: #8AC49A;
+	border: 1px solid #FFFFFF;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 26px;
+
+	font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 15px;
+
+color: #FFFFFF;
+
+  }
