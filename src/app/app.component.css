@@ -178,3 +178,18 @@ line-height: 15px;
 color: #FFFFFF;
 
   }
+
+  #map {
+    height: 500px;
+    width: 100%;
+   }
+
+   mgl-map {
+	height: 50%;
+	width: 50%;
+	z-index: 2000;
+  }
+
+  .mapboxgl-map{
+	  height:20vw !important;
+  }

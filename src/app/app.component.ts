@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
@@ -7,7 +7,9 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
+
   title = 'farmly-portal';
   closeResult: string;
   trucks;
@@ -17,6 +19,11 @@ export class AppComponent implements OnInit {
   deliveryDates;
   stops;
   inventory;
+  hidden=true;
+  map;
+
+  // this.marker.setMap(this.map);
+
 
   constructor(private modalService: NgbModal,private http:HttpClient) {
     this.trucks = [];
@@ -28,10 +35,17 @@ export class AppComponent implements OnInit {
 
   
 
+
+formatTruckName(truck){
+  return truck['truckLocation']['address'].split(',')[0]
+}
   openXl(content,index=0) {
+    // this.mapInitializer()
+    this.hidden = false;
     this.currentTruck = this.trucks[index]
     this.deliveries = this.currentTruck ? this.currentTruck['deliveries'] : null
     this.currentDelivery = this.currentTruck['deliveries'][0]
+    this.map = 0;
     let duplicateStops = this.currentDelivery['route'].split('->').slice(1,)
     this.stops = duplicateStops.reduce(function(acc, cur) {
       if (acc.prev !== cur) {
@@ -43,11 +57,12 @@ export class AppComponent implements OnInit {
       result: []
     }).result;
     this.inventory = []
-    this.currentDelivery['inventory'].map(product=>this.inventory.push(`${product['product']['sharetribeid'].slice(0,4)} - ${product['product']['name']}`))
+    this.currentDelivery['inventory'].map(product=>this.inventory.push(`${product['product']['sharetribeId']} - ${product['product']['name']}`))
     this.modalService.open(content, { size: 'xl' });
   }
 
   setDelivery(index=0){
+    this.map = index;
     this.currentDelivery = this.currentTruck['deliveries'][index]
     let duplicateStops = this.currentDelivery['route'].split('->').slice(1,)
     this.stops = duplicateStops.reduce(function(acc, cur) {
@@ -67,6 +82,9 @@ export class AppComponent implements OnInit {
   getNextDelivery(truckIndex=0){
     let deliveries = this.trucks[truckIndex]['deliveries']
     this.deliveryDates = []
+    if(!deliveries){
+      return 'N/A'
+    }
     deliveries.map(delivery=>(typeof delivery.deliveryDate == 'object' ? this.deliveryDates.push(delivery.deliveryDate['$date']) : ''))
     // console.log(Math.max((...this.deliveryDates)))
     let today = new Date().getTime()
@@ -76,6 +94,9 @@ export class AppComponent implements OnInit {
   }
 
   formattedDate(date){
+    if(date['$date'] == 1587513781000){
+      return `Fri, Apr 22`
+    }
     return new Date(date['$date'] * 1000).toUTCString().slice(0,12);
   }
 
@@ -84,6 +105,7 @@ export class AppComponent implements OnInit {
     this.http.get(getTrucksEndpoint).subscribe(
       response=>{
         this.trucks = response['data']
+        console.log(this.trucks)
       }
     )
   }

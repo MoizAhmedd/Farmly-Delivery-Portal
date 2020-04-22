@@ -318,7 +318,14 @@
               </div>
             </div>
           </div>
-      <img style = "margin-left: 25px;width: 1055px;height: 413px;" src = "assets/map.png">
+          <ng-container *ngIf = "map == 0">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m58!1m12!1m3!1d207246.56879849618!2d-79.32619648124287!3d43.74563239663662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m43!3e0!4m5!1s0x89d4d849c6374635%3A0xa97aff9a7cba3856!2s8327%20Steeles%20Avenue%20East%2C%20Markham%2C%20ON!3m2!1d43.8539331!2d-79.1762317!4m5!1s0x882b34e3e9f700a1%3A0xb06fc92bffd5e890!2s831%20Queen%20Street%20West%2C%20Toronto%2C%20ON!3m2!1d43.6458533!2d-79.40951059999999!4m5!1s0x89d51ce0216c0d57%3A0xb222ed9b20d64d23!2s23%20Lloyd%20St%2C%20Oshawa%2C%20ON%20L1H%201X2!3m2!1d43.892490099999996!2d-78.8623717!4m5!1s0x89d4d849c6374635%3A0xa97aff9a7cba3856!2s8327%20Steeles%20Ave%20E%2C%20Markham%2C%20ON%20L6B%201A8!3m2!1d43.8539331!2d-79.1762317!4m5!1s0x89d4d0c345e9ce47%3A0x169c18db5fc8a531!2s38%20Littleleaf%20Drive%2C%20Scarborough%2C%20ON!3m2!1d43.8000812!2d-79.2330659!4m5!1s0x89d4d74dae7a9801%3A0xe568f73508212acf!2s19%20Carisbrooke%20Square%2C%20Scarborough%2C%20ON!3m2!1d43.8161053!2d-79.2141674!4m5!1s0x89d4d849c6374635%3A0xa97aff9a7cba3856!2s8327%20Steeles%20Avenue%20East%2C%20Markham%2C%20ON!3m2!1d43.8539331!2d-79.1762317!5e0!3m2!1sen!2sca!4v1587531439093!5m2!1sen!2sca" width="1100" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d207246.56879849618!2d-79.32619648124287!3d43.74563239663662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x89d4d849c6374635%3A0xa97aff9a7cba3856!2s8327%20Steeles%20Avenue%20East%2C%20Markham%2C%20ON!3m2!1d43.8539331!2d-79.1762317!4m5!1s0x882b34e3e9f700a1%3A0xb06fc92bffd5e890!2s831%20Queen%20Street%20West%2C%20Toronto%2C%20ON!3m2!1d43.6458533!2d-79.40951059999999!4m5!1s0x89d51ce0216c0d57%3A0xb222ed9b20d64d23!2s23%20Lloyd%20St%2C%20Oshawa%2C%20ON%20L1H%201X2!3m2!1d43.892490099999996!2d-78.8623717!4m5!1s0x89d4d849c6374635%3A0xa97aff9a7cba3856!2s8327%20Steeles%20Ave%20E%2C%20Markham%2C%20ON%20L6B%201A8!3m2!1d43.8539331!2d-79.1762317!5e0!3m2!1sen!2sca!4v1587525098896!5m2!1sen!2sca" width="1100" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </ng-container>
+          <ng-container *ngIf = "map == 1">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d184585.57164724523!2d-79.56546017448045!3d43.70744464272003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x89d4d849c6374635%3A0xa97aff9a7cba3856!2s8327%20Steeles%20Avenue%20East%2C%20Markham%2C%20ON!3m2!1d43.8539331!2d-79.1762317!4m5!1s0x882b34cad3ff9e3f%3A0xdf642c7960319c6f!2s10%20Dundas%20East%2C%2010%20Dundas%20St%20E%2C%20Toronto%2C%20ON%20M5B%202G9!3m2!1d43.65665!2d-79.3804851!4m5!1s0x882b43e297d635d7%3A0x97529959dbb236d8!2s3359%20Mississauga%20Rd%2C%20Mississauga%2C%20ON%20L5L%201C6!3m2!1d43.5508618!2d-79.6627531!4m5!1s0x89d4d849c6374635%3A0xa97aff9a7cba3856!2s8327%20Steeles%20Ave%20E%2C%20Markham%2C%20ON%20L6B%201A8!3m2!1d43.8539331!2d-79.1762317!5e0!3m2!1sen!2sca!4v1587524645260!5m2!1sen!2sca" width="1100" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </ng-container>
+         
       <div class = "cards">
           <div style = "width:250px; height:250px;" class = "truck-card">
               <div class = "category">
@@ -365,7 +372,7 @@
       <div class = "truck-card">
           <div class = "truck-content">
             <img src = "assets/truck.png">
-            <p class = "truck-name">{{truck.truckLocation['address'].split(',')[0]}} Truck</p>
+            <p class = "truck-name">{{formatTruckName(truck)}}&nbsp;Truck</p>
             <p class = "next-delivery"><strong>Next Delivery:&nbsp;</strong>{{getNextDelivery(indexOfelement)}}</p>
             <button  (click)="openXl(content,indexOfelement)" class = "view-btn">
               VIEW
@@ -374,6 +381,8 @@
         </div>
   </ng-container>
 </div>
+
+
 
 <!-- <ng-container *ngFor = "let truck of trucks;let indexOfelement=index;">
   

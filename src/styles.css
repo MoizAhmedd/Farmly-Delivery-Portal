@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+@import "~mapbox-gl/dist/mapbox-gl.css";
+@import "~@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css";
 @import '~bootstrap/dist/css/bootstrap.css';
 
 
 body{
-	background-image: url('assets/portalbg.png');
+	background-image: url('assets/portal-bg2.png');
 	background-repeat:repeat-y;
 	background-size: cover;
 }
