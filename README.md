@@ -11,5 +11,5 @@ The delivery is scheduled to ensure the optimal route(shortest path across multi
 Farmers can then view their delivery routes for a given delivery date, as well as the inventory of that delivery.
 
 <div style = "text-align:center;margin:0 auto;display:flex;justify-content:center;">
-<img src = "farmlyfinal.gif">
+<img style = "width:500px;" src = "farmlyfinal.gif">
                             </div>
