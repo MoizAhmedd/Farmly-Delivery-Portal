@@ -10,4 +10,4 @@ The delivery is scheduled to ensure the optimal route(shortest path across multi
 
 Farmers can then view their delivery routes for a given delivery date, as well as the inventory of that delivery.
 
-<img src = "src/assets/groceries.png">
+<img src = "farmlyfinal.gif">
